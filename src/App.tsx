@@ -43,7 +43,7 @@ export const App: React.FC = () => {
     if (newTodoFieldRef.current) {
       newTodoFieldRef.current.focus();
     }
-  });
+  }, []);
 
   if (!USER_ID) {
     return <UserWarning />;
@@ -201,7 +201,7 @@ export const App: React.FC = () => {
                 );
               })}
 
-              {tempTodo && (
+              {tempTodo && filter !== 'completed' && (
                 <div
                   key={tempTodo.id}
                   data-cy="Todo"
@@ -323,14 +323,3 @@ export const App: React.FC = () => {
     </div>
   );
 };
-// <section className="section container">
-//   <p className="title is-4">
-//     Copy all you need from the prev task:
-//     <br />
-//     <a href="https://github.com/mate-academy/react_todo-app-loading-todos#react-todo-app-load-todos">
-//       React Todo App - Load Todos
-//     </a>
-//   </p>
-
-//   <p className="subtitle">Styles are already copied</p>
-// </section>
